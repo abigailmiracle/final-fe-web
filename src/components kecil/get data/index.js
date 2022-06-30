@@ -1,18 +1,24 @@
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 export default function GetData(){
+    const [features, setFeatures]= useState([])
+  useEffect(()=>{
+    axios.get("http://localhost:3333/biodata").then(res=>setFeatures(res.data))
+  }, [])
     return(
         <>
-    <tr>
-        <td bgcolor="#0000FF"> UMUR </td>
-        <td> 23 TAHUN </td>
-    </tr>
-    <tr>
-        <td bgcolor="#0000FF"> ALAMAT </td>
-        <td> LUWU UTARA </td>
-    </tr>
-    <tr>
-        <td bgcolor="#0000FF"> HOBI </td>
-        <td> MEMBACA DAN MENULIS </td>
-    </tr>
+        {
+            features.map(item=>{
+              return(
+                <>
+                <tr>
+                <td bgcolor="#0000FF">{`${item.list}`}</td>
+                <td>{`${item.insideList}`}</td>
+                </tr>
+                </>
+            )
+            })
+          }
         </>
     )
 }

@@ -1,5 +1,4 @@
 import Content from "../content/index";
-
 export default function Table(){
     return(
         <>

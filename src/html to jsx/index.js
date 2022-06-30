@@ -3,7 +3,7 @@ import Title from "../components/title";
 
 export default function Page (){
     return (
-        <div>
+<div>
   <Title/>
   <Table/>
 </div>
